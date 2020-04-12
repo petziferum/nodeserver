@@ -1,9 +1,13 @@
 const express = require('express');
 const path = require('path');
 const serveStatic = require('serve-static');
-const port = 8000;
+app = express();
+app.use(serveStatic(__dirname + '/dist'));
+const port = process.env.PORT || 8000;
+const hostname = 'localhost';
 
 
-server.listen(port);
-
+app.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+});
 
